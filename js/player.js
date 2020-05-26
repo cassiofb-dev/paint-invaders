@@ -7,6 +7,8 @@ class Player {
 	}
 
 	setVel(vel) {
+		this.pos[0] += vel[0];
+		this.pos[1] += vel[1];
 		this.vel[0] += vel[0];
 		this.vel[1] += vel[1];
 	}
@@ -29,8 +31,8 @@ class Player {
 	run() {
 		fill('red');
 		this.run_bullets();
-		this.pos[0] += this.vel[0];
-		this.pos[1] += this.vel[1];
+		if(this.pos[0] > 0 && this.pos[0] < width - 100) this.pos[0] += this.vel[0];
+		if(this.pos[1] > 0 && this.pos[1] < height - 100) this.pos[1] += this.vel[1];
 		fill('white');
 		//square(this.pos[0], this.pos[1], 30);
 		image(ship_image, this.pos[0], this.pos[1], 100, 100);
